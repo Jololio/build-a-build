@@ -18,7 +18,7 @@ app.get('/js', (req, res) => {
 })
 
 app.get('/setup_db', (req, res) => {
-    console.log('Seeding databse...')
+    console.log('Seeding database...')
     seed()
     return res.status(200).send('DB has seeded successfully!')
 })
