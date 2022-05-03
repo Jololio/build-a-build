@@ -1,5 +1,6 @@
 require('dotenv').config()
 const express = require('express')
+const path = require('path')
 const app = express()
 const cors = require('cors')
 const axios = require('axios').default
@@ -19,7 +20,7 @@ app.get('/js', (req, res) => {
 
 app.get('/setup_db', (req, res) => {
     console.log('Seeding database...')
-    seed()
+    seed(req,res)
     return res.status(200).send('DB has seeded successfully!')
 })
 
