@@ -6,6 +6,7 @@ const cors = require('cors')
 const axios = require('axios').default
 const {SERVER_PORT} = process.env
 const {seed} = require('./seed.js')
+const {loginUser} = require('./loginController')
 
 app.use(express.json())
 app.use(cors())
@@ -21,7 +22,11 @@ app.get('/js', (req, res) => {
 app.get('/setup_db', (req, res) => {
     console.log('Seeding database...')
     seed(req,res)
-    return res.status(200).send('DB has seeded successfully!')
+})
+
+app.get('/login/:username/:password', (req, res) => {
+    console.log(`Logging in, ${req.params.username}`)
+    loginUser(req,res)
 })
 
 app.listen(SERVER_PORT, () => console.log(`up on ${SERVER_PORT}`))

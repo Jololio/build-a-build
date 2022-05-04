@@ -1,47 +1,44 @@
-require('dotenv').config()
-const Sequelize = require('sequelize')
-
-const {CONNECTION_STRING} = process.env
-
-const sequelize = new Sequelize(CONNECTION_STRING, {
-    dialect: 'postgres',
-    dialectOptions: {
-        ssl: {
-            rejectUnauthorized: false
-        }
-    }
-})
+const sequelize = require('./database')
 
 module.exports = {
     seed: (req, res) => {
         sequelize.query(`
-        drop table if exists bab_users;
-        drop table if exists bab_champions;
-        drop table if exists bab_items;
+        DROP TABLE IF EXISTS bab_builds;
+        DROP TABLE IF EXISTS bab_users;
+        DROP TABLE IF EXISTS bab_champions;
+        DROP TABLE IF EXISTS bab_items;
         
-        create table bab_users (
-            user_id serial primary key,
-            first_name varchar(100),
-            last_name varchar(100),
-            username varchar(100),
-            password varchar(100)
+        CREATE TABLE bab_users (
+            user_id SERIAL PRIMARY KEY,
+            first_name VARCHAR(100),
+            last_name VARCHAR(100),
+            username VARCHAR(100),
+            password VARCHAR(100)
         );
 
-        create table bab_champions (
-            champion_id serial primary key,
-            champ_name varchar(200)
+        CREATE TABLE bab_champions (
+            champion_id SERIAL PRIMARY KEY,
+            champ_name VARCHAR(200)
         );
 
-        create table bab_items (
-            item_id serial primary key,
-            item_name varchar(250)
+        CREATE TABLE bab_items (
+            item_id SERIAL PRIMARY KEY,
+            item_name VARCHAR(250)
         );
 
-        insert into bab_users (first_name, last_name, username, password)
-        values ('Joseph', 'Al-Abudi', 'Jololio', '12345');
+        CREATE TABLE bab_builds (
+            build_id SERIAL PRIMARY KEY,
+            build_name VARCHAR(100),
+            user_id INTEGER REFERENCES bab_users(user_id),
+            champion_id INTEGER REFERENCES bab_champions(champion_id),
+            item_ids INTEGER []
+        );
 
-        insert into bab_champions (champ_name)
-        values ('Aatrox'),
+        INSERT INTO bab_users (first_name, last_name, username, password)
+        VALUES('Joseph', 'Al-Abudi', 'Jololio', '12345');
+
+        INSERT INTO bab_champions (champ_name)
+        VALUES('Aatrox'),
             ('Ahri'),
             ('Akali'),
             ('Akshan'),
@@ -202,8 +199,8 @@ module.exports = {
             ('Zoe'),
             ('Zyra');
         
-        insert into bab_items (item_name)
-        values('Crown of the Shattered Queen'),
+        INSERT INTO bab_items (item_name)
+        VALUES('Crown of the Shattered Queen'),
             ('Divine Sunderer'),
             ('Duskblade of Draktharr'),
             ('Eclipse'),
@@ -298,6 +295,9 @@ module.exports = {
             ('Youmuus Ghostblade'),
             ('Zekes Convergence'),
             ('Zhonyas Hourglass');
+
+            INSERT INTO bab_builds (user_id, champion_id, item_ids, build_name)
+            VALUES (1,1, ARRAY[1,2,3,4,5,6], 'Trox');
         `).then(() => {
             console.log('DB seeded!')
             res.sendStatus(200)

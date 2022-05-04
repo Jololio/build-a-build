@@ -1,14 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
-</head>
-<body>
-    
-    <a href="./buildPage.html"></a>
-
-</body>
+    <link rel="stylesheet" href="./reset.css" type="text/css" />
+    <link rel="stylesheet" href="./loginPage.css" type="text/css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="login_wrapper">
+      <div class="login_container">
+        <h1>Login Below</h1>
+        <div class="left2right">
+          
+          <form class="login_form" id="login_form">
+            <h2>Username:</h2>
+            <input placeholder="Username here" />
+            <h2>Password:</h2>
+            <input placeholder="Password here" type="password"/>
+            <section class="bottom_login_container">
+              <button id="login_button">Login!</button>
+              <h2 onclick="showRegisterForm()">Click here to sign up!</h2>
+            </section>
+          </form>
+          
+          <form class="login_form" id="register_form">
+            <h2>Username:</h2>
+            <input placeholder="Username here" />
+            <h2>First Name:</h2>
+            <input placeholder="Enter first name" />
+            <h2>Last Name:</h2>
+            <input placeholder="Enter last name" />
+            <h2>Password:</h2>
+            <input placeholder="Password here" type="password"/>
+            <section class="bottom_login_container">
+                <button id="register_button">Register!</button>
+                <h2 onclick="showLoginForm()">Click here to log in</h2>
+            </section>
+          </form>
+          
+          <div class="site_info">
+            <h4 style="font-weight: bold;font-size: 24px;">Build-A-Build</h4>
+            <h2>Joseph Al-Abudi</h2>
+            <h3>F21 Foundations Capstone</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./loginPage.js"></script>
+  </body>
 </html>

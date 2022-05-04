@@ -1,0 +1,59 @@
+body {
+    background: url('./resources/league-background.jpg');
+    background-size: cover;
+    font-family: 'Montserrat', sans-serif;
+}
+.login_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.login_container {
+    background-color: white;
+    width: 30vw;
+    border-radius: 15px;
+    padding: 25px;
+}
+.login_container h1 {
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 50px;
+}
+.bottom_login_container {
+    display: flex;
+    align-items: center;
+}
+#login_button {
+    width: 125px;
+    height: 50px;
+    background-color: mediumseagreen;
+    border: none;
+    margin-right: 10px;
+}
+.login_form {
+    margin-bottom: 25px;
+}
+.login_form input {
+    margin-bottom: 15px;
+    margin-top: 5px;
+}
+.left2right {
+    display: flex;
+    justify-content: space-between;
+}
+.site_info {
+    text-align: center;
+}
+#register_form {
+    display: none;
+}
+#register_button {
+    width: 125px;
+    height: 50px;
+    background-color: indianred;
+    border: none;
+    margin-right: 10px;
+}
