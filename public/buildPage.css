@@ -1,0 +1,74 @@
+body {
+
+    font-family: 'Montserrat', sans-serif;
+}
+.build_wrapper {
+    display: block;
+    justify-content: left;
+    align-items: center;
+    height: 100vh;
+}
+.site_info_container {
+    background-color: black;
+    width: 25vw;
+    height: 10vh;
+}
+.site_info_container h1 {
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+    text-align: center;
+    padding-top: 15px;
+}
+.site_info_container h2 {
+    color: white;
+    text-align: center;
+}
+.user_builds_container {
+    background-color: gainsboro;
+    width: 25vw;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.user_builds_container h1 {
+    font-weight: bold;
+    font-size: 25px;
+    text-align: center;
+    padding-top: 10px;
+    align-items: center;
+}
+#delete_button {
+    width: 400px;
+    height: 30px;
+    background-color: red;
+    border: none;
+    align-content:center;
+    color: white;
+}
+#edit_button {
+    width: 100px;
+    height: 50px;
+    background-color: mediumspringgreen;
+    border: none;
+}
+#create_button {
+    width: 100px;
+    height: 50px;
+    background-color: mediumseagreen;
+    border: none;
+}
+#buttons_container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#edit_create_buttons_container {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}

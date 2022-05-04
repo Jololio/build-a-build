@@ -1,13 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Build Page</title>
-</head>
-<body>
-    
-    
-</body>
+    <link rel="stylesheet" href="./reset.css" type="text/css" />
+    <link rel="stylesheet" href="./buildPage.css" type="text/css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="build_wrapper">
+      <div class="site_info_container">
+        <h1>Build-A-Build</h1>
+        <h2>Joseph Al-Abudi</h2>
+        <h2>F21 Foundations Capstone</h2>
+      </div>
+
+      <div class="user_builds_container">
+          <h1 id="username_header">userName's builds:</h1>
+          <section id="build_names_container">
+            Build names container
+          </section>
+          <section id="buttons_container">
+            <button id="delete_button">Delete Build</button>
+            <div id="edit_create_buttons_container">
+              <button id="edit_button">Edit Build</button>
+              <button id="create_button">Create Build</button>
+            </div>
+          </section>
+      </div>
+
+      <div class="editor_container">
+        <h1>CREATE A NEW BUILD:</h1>
+      </div>
+    </div>
+    <script src="./buildPage.js"></script>
+  </body>
 </html>
