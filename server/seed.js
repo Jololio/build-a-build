@@ -31,12 +31,18 @@ module.exports = {
             build_name VARCHAR(100),
             user_id INTEGER REFERENCES bab_users(user_id),
             champion_id INTEGER REFERENCES bab_champions(champion_id),
-            item_ids INTEGER []
+            item_1 INTEGER,
+            item_2 INTEGER,
+            item_3 INTEGER,
+            item_4 INTEGER,
+            item_5 INTEGER,
+            item_6 INTEGER
         );
 
         INSERT INTO bab_users (first_name, last_name, username, password)
         VALUES('Joseph', 'Al-Abudi', 'Jololio', '12345');
 
+        
         INSERT INTO bab_champions (champ_name)
         VALUES('Aatrox'),
             ('Ahri'),
@@ -231,10 +237,12 @@ module.exports = {
             ('Ardent Censer'),
             ('Axiom Arc'),
             ('Banshees Veil'),
+            ('Berserkers Greaves'),
             ('Black Cleaver'),
             ('Black Mist Scythe'),
             ('Blade of the Ruined King'),
             ('Bloodthirster'),
+            ('Boots of Swiftness'),
             ('Bulwark of the Mountain'),
             ('Chempunk Chainsword'),
             ('Chemtech Putrifier'),
@@ -253,6 +261,7 @@ module.exports = {
             ('Horizon Focus'),
             ('Hullbreaker'),
             ('Infinity Edge'),
+            ('Ionian boots of Lucidity'),
             ('Knights Vow'),
             ('Lich Bane'),
             ('Lord Dominiks Regards'),
@@ -260,13 +269,16 @@ module.exports = {
             ('Maw of Malmortius'),
             ('Mejais Soulstealer'),
             ('Mercurial Scimitar'),
+            ('Mercurys Treads'),
             ('Mikaels Blessing'),
+            ('Mobility Boots'),
             ('Morellonomicon'),
             ('Mortal Reminder'),
             ('Nashors Tooth'),
             ('Navori Quickblades'),
             ('Pauldrons of Whiterock'),
             ('Phantom Dancer'),
+            ('Plated Steelcaps'),
             ('Rabadons Deathcap'),
             ('Randuins Omen'),
             ('Rapid Firecannon'),
@@ -280,6 +292,7 @@ module.exports = {
             ('Shard of True Ice'),
             ('Silvermere Dawn'),
             ('Spirit Visage'),
+            ('Sorcerers Shoes'),
             ('Staff of Flowing Water'),
             ('Steraks Gage'),
             ('Stormrazor'),
@@ -296,8 +309,8 @@ module.exports = {
             ('Zekes Convergence'),
             ('Zhonyas Hourglass');
 
-            INSERT INTO bab_builds (user_id, champion_id, item_ids, build_name)
-            VALUES (1,1, ARRAY[1,2,3,4,5,6], 'Trox');
+        INSERT INTO bab_builds (user_id, champion_id, item_1, item_2, item_3, item_4, item_5, item_6, build_name)
+        VALUES (1,1,1,2,3,4,5,6, 'Trox');
         `).then(() => {
             console.log('DB seeded!')
             res.sendStatus(200)

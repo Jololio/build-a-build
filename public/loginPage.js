@@ -14,5 +14,6 @@ login_form.addEventListener('submit', (e) => {
     e.preventDefault()
 
     window.localStorage.setItem('username', usernameInput.value)
+    window.localStorage.setItem('userId', 1)
     window.location.href = './buildPage.html'
 })

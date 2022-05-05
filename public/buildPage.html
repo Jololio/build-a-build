@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Build Page</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="./reset.css" type="text/css" />
     <link rel="stylesheet" href="./buildPage.css" type="text/css" />
     <link
@@ -19,12 +20,10 @@
         <h2>Joseph Al-Abudi</h2>
         <h2>F21 Foundations Capstone</h2>
       </div>
-
-      <div class="user_builds_container">
+      <div class="left2right_build">
+        <div class="user_builds_container">
           <h1 id="username_header">userName's builds:</h1>
-          <section id="build_names_container">
-            Build names container
-          </section>
+          <section id="build_names_container">Build names container</section>
           <section id="buttons_container">
             <button id="delete_button">Delete Build</button>
             <div id="edit_create_buttons_container">
@@ -32,10 +31,67 @@
               <button id="create_button">Create Build</button>
             </div>
           </section>
-      </div>
+        </div>
 
-      <div class="editor_container">
-        <h1>CREATE A NEW BUILD:</h1>
+        <div class="editor_container">
+          <h1>CREATE A NEW BUILD:</h1>
+          <input id="build_name_input" placeholder="Name your build">
+          <label for="champions">Choose a champion</label>
+          <select name="champions" id="champions">
+            <option value="" style="display: none">Choose a champion</option>
+          </select>
+
+          <section class="dropdown_container">
+            <div>
+            <label for="item_dropdwn1">First Item</label>
+            <select name="item_dropdwn1" id="item_dropdwn1">
+              <option value="" style="display: none">Choose an item</option>
+            </select>
+            </div>
+
+            <div>
+            <label for="item_dropdwn2">Second Item</label>
+            <select name="item_dropdwn2" id="item_dropdwn2">
+              <option value="" style="display: none">Choose an item</option>
+            </select>
+          </div>
+          </section>
+           
+          <section class="dropdown_container">
+            <div>
+            <label for="item_dropdwn3">Third Item</label>
+            <select name="item_dropdwn3" id="item_dropdwn3">
+              <option value="" style="display: none">Choose an item</option>
+            </select>
+            </div>
+            
+            <div>
+            <label for="item_dropdwn4">Fourth Item</label>
+            <select name="item_dropdwn4" id="item_dropdwn4">
+              <option value="" style="display: none">Choose an item</option>
+            </select>
+            </div>
+          </section>
+
+          <section class="dropdown_container">
+            <div>
+            <label for="item_dropdwn5">Fifth Item</label>
+            <select name="item_dropdwn5" id="item_dropdwn5">
+              <option value="" style="display: none">Choose an item</option>
+            </select>
+            </div>
+
+            <div>
+            <label for="item_dropdwn6">Sixth Item</label>
+            <select name="item_dropdwn6" id="item_dropdwn6">
+              <option value="" style="display: none">Choose an item</option>
+            </select>
+          </div>
+          </section>
+          
+  
+          <button id="save_button" onclick="saveBuild()">Save Build</button>
+        </div>
       </div>
     </div>
     <script src="./buildPage.js"></script>

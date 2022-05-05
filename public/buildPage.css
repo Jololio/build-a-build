@@ -40,7 +40,7 @@ body {
     align-items: center;
 }
 #delete_button {
-    width: 400px;
+    width: 95%;
     height: 30px;
     background-color: red;
     border: none;
@@ -71,4 +71,33 @@ body {
     justify-content: space-evenly;
     padding-top: 10px;
     padding-bottom: 5px;
+}
+.editor_container {
+    width: 75%;
+    text-align: center;
+}
+.left2right_build {
+    display: flex;
+}
+.dropdown_container {
+    display: flex;
+    margin-top: 100px;
+    margin-left: 75px;
+    width: 75%;
+    justify-content: space-around;
+}
+.dropdown_container div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.editor_container h1 {
+    font-weight: bold;
+}
+#save_button {
+    width: 100px;
+    height: 50px;
+    border: none;
+    background-color: mediumseagreen;
 }
