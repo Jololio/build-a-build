@@ -41,12 +41,23 @@ app.get('/champions', (req, res) => {
 })
 
 app.get('/items', (req, res) => {
-    sequelize.query(`
+    if(req.query.item_1){
+        let {item_1, item_2, item_3, item_4, item_5, item_6} = req.query
+        sequelize.query(`
+            SELECT *
+            FROM bab_items
+            WHERE item_id IN (${item_1}, ${item_2}, ${item_3}, ${item_4}, ${item_5}, ${item_6});
+        `).then(dbRes => {
+            res.status(200).send(dbRes[0])
+        })
+    } else {
+        sequelize.query(`
         SELECT *
         FROM bab_items
-    `).then(dbRes => {
+        `).then(dbRes => {
         res.status(200).send(dbRes[0])
-    })
+        })
+    }
 })
 
 app.post('/create-build', (req, res) => {
