@@ -49,4 +49,17 @@ const saveBuild = () => {
         console.log(res)
     })
 }
-
+const getBuildNames = () => {
+    axios.get('http://localhost:9876/builds').then(res => {
+        console.log(res.data)
+        let buildNamesContainer = document.getElementById('build_names_container')
+        console.log(buildNamesContainer)
+        for (let i = 0; i < res.data.length; i++){
+            console.log(res.data[i])
+            let buildName = document.createElement('h1')
+            buildName.textContent = res.data[i].build_name
+            buildNamesContainer.appendChild(buildName)
+        }
+    })
+}
+getBuildNames()

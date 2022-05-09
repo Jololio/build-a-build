@@ -56,6 +56,6 @@ app.post('/create-build', (req, res) => {
     `)
 })
 
-// getUserBuilds()
+app.get('/builds', getUserBuilds)
 
 app.listen(SERVER_PORT, () => console.log(`up on ${SERVER_PORT}`))

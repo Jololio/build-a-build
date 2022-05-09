@@ -15,7 +15,7 @@ module.exports = {
         `
       )
       .then((dbRes) => {
-          console.log(dbRes[0])
+          res.status(200).send(dbRes[0])
       });
   },
   createBuild: (req, res) => {},
