@@ -46,18 +46,25 @@ body {
     border: none;
     align-content:center;
     color: white;
+    margin: 10px;
 }
 #edit_button {
-    width: 100px;
-    height: 50px;
-    background-color: mediumspringgreen;
+    width: 95%;
+    height: 30px;
+    background-color: cornflowerblue;
     border: none;
+    align-content:center;
+    color: white;
+    margin: 10px;
 }
 #create_button {
-    width: 100px;
-    height: 50px;
+    width: 95%;
+    height: 30px;
     background-color: mediumseagreen;
     border: none;
+    align-content:center;
+    color: white;
+    margin: 10px;
 }
 #buttons_container {
     width: 100%;
