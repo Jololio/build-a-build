@@ -87,10 +87,17 @@ const getBuildItems = (build, isEditing) => {
         }
     })
 }
-const showEditor = () => {
-    let editorContainer = document.getElementById('editor_container')
-    viewBuildContainer.style.display = 'none'
-    editorContainer.style.display = 'block'
+const showEditor = (isEditing) => {
+    if(isEditing === true){
+        let editorContainer = document.getElementById('editor_container')
+        viewBuildContainer.style.display = 'none'
+        editorContainer.style.display = 'block'
+    } else {
+        currentBuild = null;
+        let editorContainer = document.getElementById('editor_container')
+        viewBuildContainer.style.display = 'none'
+        editorContainer.style.display = 'block'
+    }
 } 
 const getBuildNames = () => {
     axios.get('https://build-a-build-jala0128.herokuapp.com/builds').then(res => {
@@ -118,6 +125,6 @@ const deleteBuild = () => {
     })
 }
 const editBuild = () => {
-    showEditor()
+    showEditor(true)
     getBuildItems(currentBuild, true)
 }
