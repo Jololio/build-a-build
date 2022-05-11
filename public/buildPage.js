@@ -5,11 +5,14 @@ let buildNamesContainer = document.getElementById('build_names_container')
 let buildNameInput = document.getElementById('build_name_input')
 let viewBuildContainer = document.getElementById('view_build_container')
 let currentBuild = null;
+const herokuLink = `https://build-a-build-jala0128.herokuapp.com`
+const localhostLink = `http://127.0.0.1:9876`
+const backendURL = window.location.href.includes(`127.0.0.1`)?localhostLink:herokuLink
 
 usernameHeader.innerText = window.localStorage.getItem('username') + "'s Builds:" 
 
 const getChampions = () => {
-    axios.get('https://build-a-build-jala0128.herokuapp.com/champions').then(res => {
+    axios.get(`${backendURL}/champions`).then(res => {
         res.data.forEach(champ => {
             champDropdown.innerHTML +=(`
             <option value='${champ.champion_id}' id='${champ.champ_name}'>
@@ -21,7 +24,7 @@ const getChampions = () => {
 }
 getChampions()
 const getItems = () => {
-    axios.get('https://build-a-build-jala0128.herokuapp.com/items').then(res => {
+    axios.get(`${backendURL}/items`).then(res => {
         dropdownArr.forEach(dropdown => {
             res.data.forEach(item => {
                 dropdown.innerHTML += (`
@@ -50,13 +53,13 @@ const saveBuild = () => {
     if(currentBuild) {
         // Build Update Endpoint
         body.buildId = currentBuild.build_id
-        axios.put('https://build-a-build-jala0128.herokuapp.com/edit-build', body).then(res => {
+        axios.put(`${backendURL}/edit-build`, body).then(res => {
             alert('Build Updated!')
             getBuildNames()
         })
     }
     else {
-        axios.post('https://build-a-build-jala0128.herokuapp.com/create-build', body).then(res => {
+        axios.post(`${backendURL}/create-build`, body).then(res => {
             getBuildNames()
         })
     }
@@ -71,7 +74,7 @@ const getBuildItems = (build, isEditing) => {
     console.log(build)
     let {item_1, item_2, item_3, item_4, item_5, item_6, champ_name, build_name} = build
     let editorContainer = document.getElementById('editor_container')
-    axios.get(`https://build-a-build-jala0128.herokuapp.com/items?item_1=${item_1}&item_2=${item_2}&item_3=${item_3}&item_4=${item_4}&item_5=${item_5}&item_6=${item_6}`).then(res => {
+    axios.get(`${backendURL}/items?item_1=${item_1}&item_2=${item_2}&item_3=${item_3}&item_4=${item_4}&item_5=${item_5}&item_6=${item_6}`).then(res => {
         document.getElementById(`build_name_header`).innerHTML = build_name
         document.getElementById(`champ_name_header`).innerHTML = champ_name
         res.data.forEach((item, i) => {
@@ -100,7 +103,7 @@ const showEditor = (isEditing) => {
     }
 } 
 const getBuildNames = () => {
-    axios.get('https://build-a-build-jala0128.herokuapp.com/builds').then(res => {
+    axios.get(`${backendURL}/builds`).then(res => {
         let buildNamesContainer = document.getElementById('build_names_container')
         buildNamesContainer.innerHTML = ''
         for (let i = 0; i < res.data.length; i++){
@@ -119,7 +122,7 @@ const getBuildNames = () => {
 getBuildNames()
 const deleteBuild = () => {
     console.log(currentBuild)
-    axios.delete(`https://build-a-build-jala0128.herokuapp.com/delete-build/${currentBuild.build_id}`).then(res => {
+    axios.delete(`${backendURL}/delete-build/${currentBuild.build_id}`).then(res => {
         alert('Build has been deleted!')
         getBuildNames()
     })

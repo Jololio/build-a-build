@@ -3,7 +3,6 @@ const express = require('express')
 const path = require('path')
 const app = express()
 const cors = require('cors')
-const axios = require('axios').default
 const {PORT} = process.env
 const {seed} = require('./seed.js')
 const {loginUser} = require('./loginController')
@@ -70,6 +69,7 @@ app.post('/create-build', (req, res) => {
         INSERT INTO bab_builds (build_name, user_id, champion_id, item_1, item_2, item_3, item_4, item_5, item_6)
         VALUES('${req.body.buildName}', '${req.body.userId}', ${req.body.champion}, ${req.body.items[0]}, ${req.body.items[1]}, ${req.body.items[2]}, ${req.body.items[3]}, ${req.body.items[4]}, ${req.body.items[5]})   
     `).then(dbRes => {
+        console.log(req.body)
         res.status(200).send(dbRes[0])
     })
 })
