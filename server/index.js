@@ -4,7 +4,7 @@ const path = require('path')
 const app = express()
 const cors = require('cors')
 const axios = require('axios').default
-const {SERVER_PORT} = process.env
+const {PORT} = process.env
 const {seed} = require('./seed.js')
 const {loginUser} = require('./loginController')
 const sequelize = require('./database.js')
@@ -95,4 +95,4 @@ app.put(`/edit-build`, (req,res) => {
 
 app.get('/builds', getUserBuilds)
 
-app.listen(SERVER_PORT, () => console.log(`up on ${SERVER_PORT}`))
+app.listen(PORT, () => console.log(`up on ${PORT}`))
